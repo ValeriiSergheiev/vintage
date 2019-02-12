@@ -2,7 +2,25 @@
   <div id="middle">
     <div class="container">
       <div class="flex-wrapper">
-        <div class="tabs"></div>
+        <div class="tab-container">
+          <h3>Our Offices</h3>
+          
+          <button
+            v-for="(tab, index) in tabs"
+            :key="index"
+            @click="currentTab = tab"
+            :class="['tab-button', { active: currentTab === tab }]"
+          >{{tab}}</button>
+          
+          <transition name="fade">
+            <component
+              :is="currentTabComponent"
+              :city="cityTabContent"
+              class="tab-content"
+            ></component>
+          </transition>
+        </div>
+        
         <div id="map"></div>
       </div>
     </div>
@@ -12,6 +30,20 @@
 <script>
   export default {
     name: "Middle",
+    data() {
+      return {
+        currentTab: 'Kiev',
+        tabs: ['Kiev', 'New York', 'Guangzhou', 'Barcelona']
+      }
+    },
+    computed: {
+      currentTabComponent: function () {
+        return 'tab-' + this.currentTab.replace(/\s/g, '').toLowerCase()
+      },
+      cityTabContent: function () {
+        return this.currentTab
+      }
+    },
     mounted() {
       const myLatLng = {lat:50.4501, lng: 30.5234}
       // eslint-disable-next-line
@@ -207,8 +239,7 @@
           }
         ]
       })
-      // const image = '@/assets/marker.png'
-      // const image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+      
       const marker = {
         path: 'M-15,0a15,15 0 1,0 30,0a15,15 0 1,0 -30,0',
         fillColor: '#3db565',
@@ -240,13 +271,46 @@
     }
   }
   
+  .tab {
+    &-container {
+      color: #fff;
+      padding: 60px 60px 30px;
+      box-sizing: border-box;
+      h3 {
+        font-size: 34px;
+        font-weight: 300;
+        margin-bottom: 30px;
+      }
+    }
+    &-button {
+      font-size: 11px;
+      color: #fff;
+      font-family: 'SuisseIntlSemiBold';
+      text-transform: uppercase;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      padding: 0;
+      margin-right: 20px;
+      &:hover {
+        color: var(--green);
+      }
+    }
+    &-content {
+    
+    }
+  }
+  
+  .active {
+    color: var(--green);
+  }
+  
   #map {
     height: 500px;
-    background-color: tomato;
   }
   
   /*Media*/
-  @media only screen and (max-width : 768px) {
+  @media only screen and (max-width : 992px) {
     .flex-wrapper {
       & > div {
         width: 100%;

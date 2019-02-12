@@ -51,8 +51,19 @@ export default {
     }
   }
   
+  button {
+    outline: none;
+  }
+  
   .container {
     max-width: 1280px;
     margin: 0 auto;
+  }
+
+  .fade-enter-active {
+    transition: opacity 1s;
+  }
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
   }
 </style>
