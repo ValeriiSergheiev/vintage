@@ -114,6 +114,8 @@
             let el = document.getElementsByClassName('getFieldForClear')
             for (let i = 0; i < el.length; i++) {
               el[i].value = null
+              el[i].classList.remove('fieldNotEmpty')
+              el[i].classList.remove('fieldEmpty')
             }
           })
           .catch(function (error) {
