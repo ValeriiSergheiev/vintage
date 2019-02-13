@@ -1,29 +1,28 @@
 <template>
   <div id="middle">
+    
     <div class="container">
-      <div class="flex-wrapper">
-        <div class="tab-container">
-          <h3>Our Offices</h3>
-          
-          <button
-            v-for="(tab, index) in tabs"
-            :key="index"
-            @click="currentTab = tab"
-            :class="['tab-button', { active: currentTab === tab }]"
-          >{{tab}}</button>
-          
-          <transition name="fade">
-            <component
-              :is="currentTabComponent"
-              :city="cityTabContent"
-              class="tab-content"
-            ></component>
-          </transition>
-        </div>
-        
-        <div id="map"></div>
+      <div class="tab-container">
+        <h3>Our Offices</h3>
+    
+        <button
+          v-for="(tab, index) in tabs"
+          :key="index"
+          @click="currentTab = tab"
+          :class="['tab-button', { active: currentTab === tab }]"
+        >{{tab}}</button>
+    
+        <transition name="fade">
+          <component
+            :is="currentTabComponent"
+            :city="cityTabContent"
+            class="tab-content"
+          ></component>
+        </transition>
       </div>
     </div>
+    
+    <div id="map"></div>
   </div>
 </template>
 
@@ -260,7 +259,9 @@
 
 <style scoped lang="scss">
   #middle {
+    position: relative;
     background-color: var(--black);
+    height: 500px;
   }
   
   .flex-wrapper {
@@ -307,14 +308,36 @@
   
   #map {
     height: 500px;
+    position: absolute;
+    left: 50%;
+    right: 0;
+    top: 0;
   }
   
   /*Media*/
-  @media only screen and (max-width : 992px) {
-    .flex-wrapper {
-      & > div {
-        width: 100%;
+  @media only screen and (max-width : 1080px) {
+    #middle {
+      height: 900px;
+    }
+  
+    #map {
+      left: 0;
+      top: 400px;
+    }
+  }
+
+  @media only screen and (max-width : 768px) {
+    .tab {
+      &-container {
+        padding: 15px;
       }
+    }
+    #middle {
+      height: 830px;
+    }
+  
+    #map {
+      top: 330px;
     }
   }
 </style>

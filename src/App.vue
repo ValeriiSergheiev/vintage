@@ -55,6 +55,10 @@ export default {
     outline: none;
   }
   
+  input {
+    border: none;
+  }
+  
   .container {
     max-width: 1280px;
     margin: 0 auto;
@@ -65,5 +69,61 @@ export default {
   }
   .fade-enter, .fade-leave-to {
     opacity: 0;
+  }
+
+  .inputField {
+    display: block;
+    width: 100%;
+    background-color: transparent;
+    border-bottom: 1px solid var(--black);
+    padding: 20px 20px 20px 100px;
+    box-sizing: border-box;
+    font-size: 18px;
+    font-family: 'SuisseIntlLight';
+    color: var(--black);
+    &:focus {
+      color: #fff;
+      border-bottom: 1px solid #fff;
+      & + span {
+        color: #fff;
+      }
+    }
+  }
+
+  .fieldEmpty {
+    color: #9e211c !important;
+    border-bottom: 1px solid #9e211c;
+    & + span {
+      color: #9e211c;
+    }
+  }
+  .fieldNotEmpty {
+    color: #fff;
+    border-bottom: 1px solid #fff;
+    & + span {
+      color: #fff;
+    }
+  }
+  
+  .textareaField {
+    width: 100%;
+    resize: none;
+    font-size: 18px;
+    font-family: 'SuisseIntlLight';
+    color: var(--black);
+    background-color: transparent;
+    border: none;
+    &::placeholder {
+      font-size: 18px;
+      font-family: 'SuisseIntlLight';
+      color: var(--black);
+    }
+    &:focus {
+      color: #fff;
+    }
+  }
+  
+  .textFieldNotEmpty {
+    color: #fff;
   }
 </style>

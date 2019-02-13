@@ -14,6 +14,7 @@ Vue.component('tab-kiev', TabKiev)
 Vue.component('tab-newyork', TabNY)
 Vue.component('tab-guangzhou', TabGuangzhou)
 Vue.component('tab-barcelona', TabBarcelona)
+// Vue.component('input-field', InputField)
 
 new Vue({
   render: h => h(App),
