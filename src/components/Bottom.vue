@@ -217,6 +217,12 @@
     }
   }
 
+  @media only screen and (max-width : 768px) {
+    .bottom-main {
+      padding: 30px 15px;
+    }
+  }
+
   @media only screen and (max-width : 480px) {
     button[type="submit"] {
       width: 200px;
