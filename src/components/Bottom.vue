@@ -111,11 +111,12 @@
           .then(function (response) {
             console.log(response)
             _this.checked = false
+            _this.dataInput = {}
             let el = document.getElementsByClassName('getFieldForClear')
-            /*for (let i = 0; i < el.length; i++) {
+            for (let i = 0; i < el.length; i++) {
               el[i].value = null
               el[i].classList.remove('fieldNotEmpty')
-            }*/
+            }
           })
           .catch(function (error) {
             console.log(error)
