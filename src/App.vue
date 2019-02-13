@@ -81,6 +81,7 @@ export default {
     font-size: 18px;
     font-family: 'SuisseIntlLight';
     color: var(--black);
+    outline: none;
     &:focus {
       color: #fff;
       border-bottom: 1px solid #fff;
@@ -113,6 +114,7 @@ export default {
     color: var(--black);
     background-color: transparent;
     border: none;
+    outline: none;
     &::placeholder {
       font-size: 18px;
       font-family: 'SuisseIntlLight';
